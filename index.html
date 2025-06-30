@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #1a3a6c;
-            --secondary: #2c5282;
-            --accent: #ecc94b;
-            --text-primary: #2d3748;
-            --text-secondary: #718096;
-            --background: #f7fafc;
+        --primary: #000820;           /* New dark blue background */
+        --secondary: #1a1f40;         /* Optional secondary tone (still dark) */
+        --accent: #ecc94b;            /* Keep for highlights */
+        --text-primary: #ffffff;      /* Set text to white */
+        --text-secondary: #d1d5db;    /* Light grey for less prominent text */
+        --background: #000820;        /* Set background default to dark */
         }
-        
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +40,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #1a3a6c;
+            background-color: var(--background);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -89,7 +88,7 @@
         
         nav a {
             text-decoration: none;
-            color: white;
+            color: var(--text-primary);
             font-weight: 500;
             font-size: 1.1rem;
             transition: color 0.3s;
@@ -107,7 +106,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #1a3a6c;
+            background-color: var(--background);
             transition: width 0.3s;
         }
         
@@ -192,7 +191,7 @@
         .btn:hover {
             background-color: transparent;
             border-color: var(--accent);
-            color: white;
+            color: var(--text-primary);
         }
         
         /* Section Styles */
@@ -312,7 +311,7 @@
         /* Performance Section */
         .performance {
             background-color: var(--primary);
-            color: white;
+            color: var(--text-primary);
         }
         .performance-graph {
         margin-top: 40px;
@@ -320,7 +319,7 @@
         }
 
         .etoro-performance-card {
-            background: #1a3a6c;
+            background: var(--background);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -344,16 +343,16 @@
         .etoro-performance-info h4 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: white;
+            color: var(--text-primary);
         }
         
         .etoro-performance-info p {
             font-size: 1rem;
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
-        
+    
         .performance-content {
             display: flex;
             gap: 60px;
