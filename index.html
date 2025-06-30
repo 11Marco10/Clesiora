@@ -83,6 +83,19 @@
             align-items: center;
         }
         
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
         .logo-text {
             display: flex;
             flex-direction: column;
@@ -709,20 +722,96 @@
                 font-size: 2.2rem;
             }
         }
+        
+        /* Edit Instructions */
+        .edit-instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--secondary);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 350px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .edit-instructions h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .instruction-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(200, 169, 81, 0.2);
+        }
+        
+        .instruction-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .instruction-item h4 {
+            color: var(--accent-light);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .instruction-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .close-instructions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <!-- Edit Instructions Panel -->
+    <div class="edit-instructions" id="editInstructions">
+        <button class="close-instructions" id="closeInstructions">
+            <i class="fas fa-times"></i>
+        </button>
+        <h3>Editing Instructions</h3>
+        <div class="instruction-item">
+            <h4>Home Content</h4>
+            <p>Look for the &lt;section class="hero"&gt; section. Edit the text inside the &lt;h1&gt; and &lt;p&gt; tags.</p>
+        </div>
+        <div class="instruction-item">
+            <h4>About Section</h4>
+            <p>Find the &lt;section id="about"&gt; section. Edit the text inside the &lt;h3&gt; and &lt;p&gt; tags.</p>
+        </div>
+        <div class="instruction-item">
+            <h4>Performance Metrics</h4>
+            <p>Go to the &lt;section id="performance"&gt; section. Update the numbers inside &lt;div class="value"&gt; and labels.</p>
+        </div>
+        <div class="instruction-item">
+            <h4>Founding Partners</h4>
+            <p>In the &lt;section id="partners"&gt; section, update names, titles, and image URLs as needed.</p>
+        </div>
+        <div class="instruction-item">
+            <h4>Contact Information</h4>
+            <p>Locate the &lt;section id="contact"&gt; section. Edit the address, phone, email, and hours.</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
             <div class="logo-container">
-                <div class="logo">
-                    <svg width="60" height="60" viewBox="0 0 60 60">
-                        <rect x="10" y="10" width="40" height="40" fill="none" stroke="#c8a951" stroke-width="3"/>
-                        <circle cx="30" cy="30" r="15" fill="none" stroke="#c8a951" stroke-width="3"/>
-                        <path d="M20 20 L40 40 M20 40 L40 20" stroke="#c8a951" stroke-width="3"/>
-                    </svg>
-                </div>
+                <div class="logo-placeholder">C</div>
                 <div class="logo-text">
                     <div class="logo-main">Celsiora</div>
                     <div class="logo-sub">Investment Management</div>
@@ -737,7 +826,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#philosophy">Philosophy</a></li>
                     <li><a href="#performance">Performance</a></li>
-                    <li><a href="#team">Team</a></li>
+                    <li><a href="#partners">Partners</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -849,19 +938,19 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="section" id="team">
+    <!-- Founding Partners Section -->
+    <section class="section" id="partners">
         <div class="container">
             <div class="section-header center">
-                <h2>Leadership Team</h2>
+                <h2>Founding Partners</h2>
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
                     <div class="member-overlay">
                         <div class="member-info">
-                            <h3>Eleanor Vance</h3>
-                            <p>Chief Executive Officer</p>
+                            <h3>Marco Morchio</h3>
+                            <p>Managing Partner</p>
                             <div class="social-links">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -871,11 +960,11 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=798&q=80')"></div>
                     <div class="member-overlay">
                         <div class="member-info">
-                            <h3>Robert Chen</h3>
-                            <p>Chief Investment Officer</p>
+                            <h3>Antoine Muller</h3>
+                            <p>Senior Partner</p>
                             <div class="social-links">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -885,11 +974,25 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
                     <div class="member-overlay">
                         <div class="member-info">
-                            <h3>Sophie Dubois</h3>
-                            <p>Head of Research</p>
+                            <h3>Edoardo Roveda</h3>
+                            <p>Investment Partner</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80')"></div>
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3>Achille Zerbib</h3>
+                            <p>Strategic Partner</p>
                             <div class="social-links">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -982,7 +1085,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#philosophy">Investment Philosophy</a></li>
                         <li><a href="#performance">Performance</a></li>
-                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#partners">Partners</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1083,6 +1186,11 @@
                 contactForm.reset();
             });
         }
+        
+        // Close instructions panel
+        document.getElementById('closeInstructions').addEventListener('click', () => {
+            document.getElementById('editInstructions').style.display = 'none';
+        });
     </script>
 </body>
 </html>
