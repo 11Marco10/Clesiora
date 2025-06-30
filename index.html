@@ -158,18 +158,20 @@
             max-width: 650px;
             color: white;
             z-index: 2;
+            color: var(--text-primary);
         }
         
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
-            color: var(--secondary)
+            color: var(--text-primary);
         }
         
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 30px;
+            color: var(--text-primary):
         }
         
         .hero-btns {
@@ -207,7 +209,7 @@
         
         .section-header h2 {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--text-primary);
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
@@ -242,7 +244,7 @@
         .about-text h3 {
             font-size: 2.2rem;
             margin-bottom: 30px;
-            color: var(--primary);
+            color: var(--text-primary);
         }
         
         .about-text p {
@@ -270,7 +272,7 @@
             right: -30px;
             width: 100%;
             height: 100%;
-            border: 5px solid var(--accent);
+            border: 5px solid var(--text-primary);
             border-radius: 10px;
             z-index: -1;
         }
@@ -306,7 +308,7 @@
         .philosophy-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--text-primary);
         }
         
         /* Performance Section */
@@ -449,13 +451,13 @@
         }
         
         .member-info h3 {
-            color: white;
+            color: var(--text-primary);
             font-size: 1.5rem;
             margin-bottom: 5px;
         }
         
         .member-info p {
-            color: var(--accent);
+            color: var(--text-primary);
             margin-bottom: 15px;
         }
         
@@ -501,6 +503,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 30px;
+            color: var(--text-primary);
         }
         
         .contact-item {
@@ -511,13 +514,14 @@
         
         .contact-item i {
             font-size: 1.5rem;
-            color: var(--accent);
+            color: var(--text-primary);
             min-width: 40px;
         }
         
         .contact-item-content h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
+            color: var(--text-primary);
         }
         
         .contact-form {
@@ -529,7 +533,7 @@
         }
         
         .contact-form h3 {
-            color: var(--primary);
+            color: var(--text-primary);
             font-size: 1.8rem;
             margin-bottom: 30px;
         }
@@ -568,7 +572,7 @@
         
         /* Footer */
         footer {
-            background: var(--text-primary);
+            background: var(--primary);
             color: white;
             padding: 70px 0 0;
         }
@@ -598,7 +602,7 @@
         }
         
         .footer-col p {
-            color: #a0aec0;
+            color: var(--text-primary);
             margin-bottom: 20px;
         }
         
@@ -611,87 +615,23 @@
         }
         
         .footer-links a {
-            color: #a0aec0;
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--text-primary);
         }
         
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
             padding: 20px 0;
             text-align: center;
-            color: #a0aec0;
+            color: var(--text-primary);
             font-size: 0.9rem;
         }
         
-        /* Edit Instructions Panel */
-        .edit-instructions {
-            background: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin: 50px auto;
-            max-width: 1000px;
-            border-left: 5px solid var(--accent);
-        }
-        
-        .instructions-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary);
-        }
-        
-        .instructions-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .instructions-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-        
-        .instruction-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        
-        .instruction-card {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--accent);
-            transition: transform 0.3s ease;
-        }
-        
-        .instruction-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .instruction-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .instruction-card h3 i {
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        
-        .instruction-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
         
         .code-block {
             background: #2d3748;
