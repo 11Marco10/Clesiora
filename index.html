@@ -4,149 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celsiora Investment Management</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #0a2540;
-            --secondary: #1d3657;
-            --accent: #c8a951;
-            --accent-light: #d8b96a;
-            --text: #f5f5f5;
-            --text-secondary: #b0b0b0;
-            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --primary: #1a3a6c;
+            --secondary: #2c5282;
+            --accent: #ecc94b;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --background: #f7fafc;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--primary);
-            color: var(--text);
-            overflow-x: hidden;
+            background-color: var(--background);
+            color: var(--text-primary);
             line-height: 1.6;
         }
         
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: 0.5px;
-        }
-        
         .container {
-            width: 100%;
-            max-width: 1400px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
-        }
-        
-        section {
-            position: relative;
-            overflow: hidden;
+            padding: 0 15px;
         }
         
         /* Header Styles */
-        header {
+        #header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            padding: 25px 0;
-            transition: var(--transition);
-        }
-        
-        .header-scrolled {
-            background: rgba(10, 37, 64, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
         
-        .logo-placeholder {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 24px;
-            color: var(--primary);
+        .logo-img {
+            height: 50px;
+            width: auto;
         }
         
         .logo-text {
-            display: flex;
-            flex-direction: column;
-            margin-left: 15px;
+            line-height: 1.2;
         }
         
         .logo-main {
-            font-size: 28px;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text);
-            font-family: 'Playfair Display', serif;
+            color: var(--primary);
         }
         
         .logo-sub {
-            font-size: 14px;
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
+            gap: 30px;
         }
         
-        nav ul li {
-            margin-left: 35px;
-        }
-        
-        nav ul li a {
+        nav a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--text-primary);
             font-weight: 500;
-            font-size: 16px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
             position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
         }
         
-        nav ul li a:after {
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: var(--transition);
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
         }
         
-        nav ul li a:hover:after {
+        nav a:hover::after {
             width: 100%;
         }
         
@@ -154,19 +119,19 @@
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
-            color: var(--text);
+            font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001;
+            color: var(--primary);
         }
         
         /* Hero Section */
         .hero {
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
             overflow: hidden;
+            margin-top: 80px;
         }
         
         .hero-video {
@@ -176,7 +141,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.4;
             z-index: -1;
         }
         
@@ -186,113 +150,81 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(10,37,64,0.9) 0%, rgba(10,37,64,0.6) 100%);
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
         
         .hero-content {
-            max-width: 800px;
-            padding-top: 100px;
+            max-width: 650px;
+            color: white;
+            z-index: 2;
         }
         
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-            line-height: 1.1;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.3s;
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
         
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            color: var(--text-secondary);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.6s;
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
         
         .hero-btns {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards 0.9s;
+            display: flex;
+            gap: 15px;
         }
         
         .btn {
             display: inline-block;
-            padding: 16px 38px;
-            background: transparent;
-            color: var(--text);
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
-            border-radius: 0;
             font-weight: 600;
-            transition: var(--transition);
-            border: 1px solid var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 14px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            transition: var(--transition);
-            z-index: -1;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
         .btn:hover {
-            color: var(--primary);
-        }
-        
-        .btn:hover:before {
-            left: 0;
+            background-color: transparent;
+            border-color: var(--accent);
+            color: white;
         }
         
         /* Section Styles */
         .section {
-            padding: 150px 0;
-            position: relative;
+            padding: 100px 0;
         }
         
         .section-header {
-            margin-bottom: 80px;
-            opacity: 0;
-            transform: translateY(30px);
+            margin-bottom: 60px;
+            text-align: center;
         }
         
         .section-header h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
             position: relative;
             display: inline-block;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
         
-        .section-header h2:after {
+        .section-header h2::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
-            height: 2px;
-            background: var(--accent);
+            height: 4px;
+            background-color: var(--accent);
         }
         
         .section-header.center {
             text-align: center;
-        }
-        
-        .section-header.center h2:after {
-            left: 50%;
-            transform: translateX(-50%);
         }
         
         /* About Section */
@@ -309,11 +241,13 @@
         .about-text h3 {
             font-size: 2.2rem;
             margin-bottom: 30px;
+            color: var(--primary);
         }
         
         .about-text p {
             margin-bottom: 25px;
             color: var(--text-secondary);
+            font-size: 1.1rem;
         }
         
         .about-image {
@@ -324,93 +258,72 @@
         .about-image-main {
             width: 100%;
             height: 500px;
-            background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .about-image-overlay {
             position: absolute;
-            top: 40px;
-            right: -40px;
-            width: 300px;
-            height: 200px;
-            background: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-            border: 10px solid var(--primary);
-            z-index: 2;
+            top: -30px;
+            right: -30px;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--accent);
+            border-radius: 10px;
+            z-index: -1;
         }
         
         /* Philosophy Section */
         .philosophy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
         
         .philosophy-card {
-            padding: 50px 40px;
-            border: 1px solid rgba(200, 169, 81, 0.2);
-            transition: var(--transition);
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
         }
         
         .philosophy-card:hover {
-            border-color: var(--accent);
             transform: translateY(-10px);
         }
         
-        .philosophy-card .number {
-            font-size: 3rem;
-            font-family: 'Playfair Display', serif;
-            color: var(--accent);
-            margin-bottom: 20px;
+        .number {
+            font-size: 2.5rem;
             font-weight: 700;
+            color: rgba(26, 58, 108, 0.1);
+            margin-bottom: 15px;
         }
         
         .philosophy-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .philosophy-card p {
-            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
         
         /* Performance Section */
         .performance {
-            background: var(--secondary);
-            position: relative;
+            background-color: var(--primary);
+            color: white;
         }
         
         .performance-content {
             display: flex;
-            gap: 80px;
+            gap: 60px;
         }
         
         .performance-stats {
             flex: 1;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 40px 30px;
-            border: 1px solid rgba(200, 169, 81, 0.2);
-        }
-        
-        .stat-card .value {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .stat-card .label {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            gap: 30px;
         }
         
         .performance-text {
@@ -418,26 +331,49 @@
         }
         
         .performance-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
         
         .performance-text p {
-            color: var(--text-secondary);
-            margin-bottom: 25px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
         /* Team Section */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
         
         .team-member {
             position: relative;
+            height: 350px;
+            border-radius: 10px;
             overflow: hidden;
-            height: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .member-image {
@@ -445,55 +381,60 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            transition: var(--transition);
+            transition: transform 0.5s ease;
         }
         
         .member-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            padding: 40px 30px;
-            background: linear-gradient(transparent, rgba(10, 37, 64, 0.9));
-            transition: var(--transition);
+            height: 100%;
+            background: rgba(26, 58, 108, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            transform: translateY(20px);
+            transition: opacity 0.5s ease;
+            padding: 20px;
+            text-align: center;
         }
         
         .team-member:hover .member-overlay {
             opacity: 1;
-            transform: translateY(0);
         }
         
         .team-member:hover .member-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .member-info h3 {
-            font-size: 1.8rem;
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 5px;
         }
         
         .member-info p {
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .social-links {
             display: flex;
+            justify-content: center;
             gap: 15px;
         }
         
         .social-links a {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            background: rgba(200, 169, 81, 0.1);
-            color: var(--accent);
-            transition: var(--transition);
+            color: white;
+            transition: background 0.3s ease;
         }
         
         .social-links a:hover {
@@ -503,23 +444,14 @@
         
         /* Contact Section */
         .contact {
-            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             position: relative;
-        }
-        
-        .contact-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 37, 64, 0.9);
+            background: linear-gradient(rgba(26, 58, 108, 0.9), rgba(26, 58, 108, 0.9)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover;
+            color: white;
         }
         
         .contact-content {
-            position: relative;
             display: flex;
-            gap: 80px;
+            gap: 60px;
         }
         
         .contact-info {
@@ -527,99 +459,107 @@
         }
         
         .contact-info h3 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
         }
         
         .contact-item {
             display: flex;
+            gap: 20px;
             margin-bottom: 30px;
         }
         
         .contact-item i {
-            font-size: 24px;
+            font-size: 1.5rem;
             color: var(--accent);
-            margin-right: 20px;
-            min-width: 30px;
+            min-width: 40px;
         }
         
         .contact-item-content h4 {
-            margin-bottom: 8px;
             font-size: 1.2rem;
-        }
-        
-        .contact-item-content p {
-            color: var(--text-secondary);
+            margin-bottom: 5px;
         }
         
         .contact-form {
             flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 1px solid rgba(200, 169, 81, 0.2);
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            transition: var(--transition);
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
         
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--accent);
+            border-color: var(--primary);
             outline: none;
         }
         
         .form-group textarea {
-            height: 150px;
+            min-height: 150px;
             resize: vertical;
         }
         
         /* Footer */
         footer {
-            padding: 100px 0 40px;
-            background: var(--primary);
+            background: var(--text-primary);
+            color: white;
+            padding: 70px 0 0;
         }
         
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 50px;
         }
         
         .footer-col h4 {
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
             font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
         
-        .footer-col h4:after {
+        .footer-col h4::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 2px;
+            height: 3px;
             background: var(--accent);
+        }
+        
+        .footer-col p {
+            color: #a0aec0;
+            margin-bottom: 20px;
         }
         
         .footer-links {
@@ -627,191 +567,173 @@
         }
         
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: var(--text-secondary);
+            color: #a0aec0;
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            color: var(--accent);
+            color: white;
         }
         
         .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary);
+            color: #a0aec0;
             font-size: 0.9rem;
         }
         
-        /* Animations */
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Edit Instructions Panel */
+        .edit-instructions {
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 1000px;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .instructions-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .instructions-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .instructions-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .instruction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .instruction-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .instruction-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .instruction-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .instruction-card h3 i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .instruction-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .code-block .highlight {
+            color: #ecc94b;
+        }
+        
+        .note {
+            background: #fff8e1;
+            border-left: 4px solid #ffd54f;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
         }
         
         /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.8rem;
-            }
-        }
-        
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            
-            .about-content,
-            .performance-content,
-            .contact-content {
+            .about-content {
                 flex-direction: column;
                 gap: 50px;
             }
             
-            .about-image-overlay {
-                display: none;
+            .performance-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
             }
         }
         
         @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
             .mobile-menu-btn {
                 display: block;
             }
             
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                flex-direction: column;
-                background: var(--primary);
-                width: 280px;
-                height: 100vh;
-                padding: 100px 40px 40px;
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            nav ul li {
-                margin: 0 0 25px 0;
-            }
-            
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
             .section {
-                padding: 100px 0;
+                padding: 70px 0;
             }
             
-            .section-header h2 {
-                font-size: 2.2rem;
+            .edit-instructions {
+                padding: 20px;
             }
-        }
-        
-        /* Edit Instructions */
-        .edit-instructions {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--secondary);
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 350px;
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .edit-instructions h3 {
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .instruction-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(200, 169, 81, 0.2);
-        }
-        
-        .instruction-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .instruction-item h4 {
-            color: var(--accent-light);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        
-        .instruction-item p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .close-instructions {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <!-- Edit Instructions Panel -->
-    <div class="edit-instructions" id="editInstructions">
-        <button class="close-instructions" id="closeInstructions">
-            <i class="fas fa-times"></i>
-        </button>
-        <h3>Editing Instructions</h3>
-        <div class="instruction-item">
-            <h4>Home Content</h4>
-            <p>Look for the &lt;section class="hero"&gt; section. Edit the text inside the &lt;h1&gt; and &lt;p&gt; tags.</p>
-        </div>
-        <div class="instruction-item">
-            <h4>About Section</h4>
-            <p>Find the &lt;section id="about"&gt; section. Edit the text inside the &lt;h3&gt; and &lt;p&gt; tags.</p>
-        </div>
-        <div class="instruction-item">
-            <h4>Performance Metrics</h4>
-            <p>Go to the &lt;section id="performance"&gt; section. Update the numbers inside &lt;div class="value"&gt; and labels.</p>
-        </div>
-        <div class="instruction-item">
-            <h4>Founding Partners</h4>
-            <p>In the &lt;section id="partners"&gt; section, update names, titles, and image URLs as needed.</p>
-        </div>
-        <div class="instruction-item">
-            <h4>Contact Information</h4>
-            <p>Locate the &lt;section id="contact"&gt; section. Edit the address, phone, email, and hours.</p>
-        </div>
-    </div>
-
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
             <div class="logo-container">
-                <div class="logo-placeholder">C</div>
+                <div class="logo-placeholder" style="background: var(--accent); color: var(--primary); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 1.8rem; font-weight: bold;">C</div>
                 <div class="logo-text">
                     <div class="logo-main">Celsiora</div>
                     <div class="logo-sub">Investment Management</div>
@@ -841,7 +763,7 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>Investment Fund </h1>
+                <h1>Investment Fund</h1>
                 <p>Celsiora Investment Management is built by students and driven by insight — our mission is to generate 25% yearly returns through bottom-up stock selection and macro-aware strategies.</p>
                 <div class="hero-btns">
                     <a href="#about" class="btn">Discover Our Approach</a>
@@ -1061,13 +983,128 @@
         </div>
     </section>
 
+    <!-- Editing Instructions Section -->
+    <section class="section">
+        <div class="container">
+            <div class="edit-instructions">
+                <div class="instructions-header">
+                    <h2>Editing Instructions</h2>
+                    <p>Detailed guide on how to update each section of the website</p>
+                </div>
+                
+                <div class="instruction-grid">
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-home"></i> Home Content</h3>
+                        <p>Look for the <span class="highlight">&lt;section class="hero"&gt;</span> section. Edit the text inside the <span class="highlight">&lt;h1&gt;</span> and <span class="highlight">&lt;p&gt;</span> tags.</p>
+                        <div class="code-block">
+                            &lt;section class="hero" id="home"&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="container"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="hero-content"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;h1&gt;Investment Fund&lt;/h1&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;Celsiora Investment Management is built by...&lt;/p&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/section&gt;
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-info-circle"></i> About Section</h3>
+                        <p>Find the <span class="highlight">&lt;section id="about"&gt;</span> section. Edit the text inside the <span class="highlight">&lt;h3&gt;</span> and <span class="highlight">&lt;p&gt;</span> tags.</p>
+                        <div class="code-block">
+                            &lt;section class="section" id="about"&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="container"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="about-text"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;h3&gt;An Investment Fund guided by...&lt;/h3&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;Celsiora Investment Management is...&lt;/p&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/section&gt;
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-chart-line"></i> Performance Metrics</h3>
+                        <p>Go to the <span class="highlight">&lt;section id="performance"&gt;</span> section. Update the numbers inside <span class="highlight">&lt;div class="value"&gt;</span> and labels.</p>
+                        <div class="code-block">
+                            &lt;div class="performance-stats"&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="stat-card"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;div class="value"&gt;11.3%&lt;/div&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;div class="label"&gt;Q1 2025 Returns&lt;/div&gt;</span><br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="stat-card"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;div class="value"&gt;$15k&lt;/div&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;div class="label"&gt;Assets Under Management&lt;/div&gt;</span><br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/div&gt;
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-users"></i> Founding Partners</h3>
+                        <p>In the <span class="highlight">&lt;section id="partners"&gt;</span> section, update names, titles, and image URLs as needed.</p>
+                        <div class="code-block">
+                            &lt;div class="team-member"&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="member-image" <span class="highlight">style="background-image: url('image-url.jpg')"</span>&gt;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="member-overlay"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="member-info"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;h3&gt;Partner Name&lt;/h3&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;Founding Partner&lt;/p&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/div&gt;
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+                        <p>Locate the <span class="highlight">&lt;section id="contact"&gt;</span> section. Edit the address, phone, email, and hours.</p>
+                        <div class="code-block">
+                            &lt;div class="contact-item"&gt;<br>
+                            &nbsp;&nbsp;&lt;i class="fas fa-phone-alt"&gt;&lt;/i&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="contact-item-content"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Phone&lt;/h4&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;+34 634647543&lt;/p&gt;</span><br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/div&gt;<br>
+                            &lt;div class="contact-item"&gt;<br>
+                            &nbsp;&nbsp;&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;<br>
+                            &nbsp;&nbsp;&lt;div class="contact-item-content"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;Email&lt;/h4&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;info@celsioraim.com&lt;/p&gt;</span><br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/div&gt;
+                        </div>
+                    </div>
+                    
+                    <div class="instruction-card">
+                        <h3><i class="fas fa-image"></i> Logo Replacement</h3>
+                        <p>To update your logo, replace the logo placeholder in the header section with your actual logo file.</p>
+                        <div class="code-block">
+                            &lt;div class="logo-container"&gt;<br>
+                            &nbsp;&nbsp;<span class="highlight">&lt;img src="your-logo.png" alt="Celsiora Logo" class="logo-img"&gt;</span><br>
+                            &nbsp;&nbsp;&lt;div class="logo-text"&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="logo-main"&gt;Celsiora&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="logo-sub"&gt;Investment Management&lt;/div&gt;<br>
+                            &nbsp;&nbsp;&lt;/div&gt;<br>
+                            &lt;/div&gt;
+                        </div>
+                        <div class="note">
+                            <strong>Note:</strong> Currently using a placeholder with the letter "C". Replace with your actual logo file.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Celsiora IM</h4>
-                    <p>Celsiora Investment Management is a venture led by 4 students coming from top universities across Europe and passionate about financial markets. We adopt a disciplined bottom-up strategy centered on companies’ intrinsic value and fundamental analysis. We aim at bringing fresh ideas and perspective over various industries in order to deliver the best value to our fund and share our vision through our network.​</p>
+                    <p>Celsiora Investment Management is a venture led by 4 students coming from top universities across Europe and passionate about financial markets. We adopt a disciplined bottom-up strategy centered on companies' intrinsic value and fundamental analysis. We aim at bringing fresh ideas and perspective over various industries in order to deliver the best value to our fund and share our vision through our network.​</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -1174,11 +1211,6 @@
                 contactForm.reset();
             });
         }
-        
-        // Close instructions panel
-        document.getElementById('closeInstructions').addEventListener('click', () => {
-            document.getElementById('editInstructions').style.display = 'none';
-        });
     </script>
 </body>
 </html>
