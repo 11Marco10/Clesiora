@@ -41,7 +41,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: primary;
+            background-color: #1a3a6c;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -89,7 +89,7 @@
         
         nav a {
             text-decoration: none;
-            color: var(--text-primary);
+            color: white;
             font-weight: 500;
             font-size: 1.1rem;
             transition: color 0.3s;
@@ -107,7 +107,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
+            background-color: #1a3a6c;
             transition: width 0.3s;
         }
         
@@ -1034,50 +1034,3 @@
             </div>
         </div>
     </section>
-
-    <!-- Editing Instructions Section -->
-    <section class="section">
-        <div class="container">
-            <div class="edit-instructions">
-                <div class="instructions-header">
-                    <h2>Editing Instructions</h2>
-                    <p>Detailed guide on how to update each section of the website</p>
-                </div>
-                
-                <div class="instruction-grid">
-                    <div class="instruction-card">
-                        <h3><i class="fas fa-home"></i> Home Content</h3>
-                        <p>Look for the <span class="highlight">&lt;section class="hero"&gt;</span> section. Edit the text inside the <span class="highlight">&lt;h1&gt;</span> and <span class="highlight">&lt;p&gt;</span> tags.</p>
-                        <div class="code-block">
-                            &lt;section class="hero" id="home"&gt;<br>
-                            &nbsp;&nbsp;&lt;div class="container"&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="hero-content"&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;h1&gt;Investment Fund&lt;/h1&gt;</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;Celsiora Investment Management is built by...&lt;/p&gt;</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                            &nbsp;&nbsp;&lt;/div&gt;<br>
-                            &lt;/section&gt;
-                        </div>
-                    </div>
-                    
-                    <div class="instruction-card">
-                        <h3><i class="fas fa-info-circle"></i> About Section</h3>
-                        <p>Find the <span class="highlight">&lt;section id="about"&gt;</span> section. Edit the text inside the <span class="highlight">&lt;h3&gt;</span> and <span class="highlight">&lt;p&gt;</span> tags.</p>
-                        <div class="code-block">
-                            &lt;section class="section" id="about"&gt;<br>
-                            &nbsp;&nbsp;&lt;div class="container"&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="about-text"&gt;<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;h3&gt;An Investment Fund guided by...&lt;/h3&gt;</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p&gt;Celsiora Investment Management is...&lt;/p&gt;</span><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                            &nbsp;&nbsp;&lt;/div&gt;<br>
-                            &lt;/section&gt;
-                        </div>
-                    </div>
-                    
-                    <div class="instruction-card">
-                        <h3><i class="fas fa-chart-line"></i> Performance Metrics</h3>
-                        <p>Go to the <span class="highlight">&lt;section id="performance"&gt;</span> section. Update the numbers inside <span class="highlight">&lt;div class="value"&gt;</span> and labels.</p>
-                        <div class="code-block">
-                            &lt;div class="performance-stats"&gt;<br>
-                            &nbsp;&nbsp;&lt;div class
